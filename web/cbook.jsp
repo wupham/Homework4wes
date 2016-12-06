@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%-- 
-    Document   : index
+    Document   : cbook
     Created on : Dec 5, 2016, 11:30:06 AM
     Author     : nick
 --%>
@@ -12,7 +12,7 @@
         <title>Frontpage Library</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/frontpage.css">
+        <link rel="stylesheet" href="styles/cbook.css">
     </head>
     <body>
         <header>
@@ -23,16 +23,16 @@
             <h2>Checkout a book</h2>
             <form action="test" method="post">
         <input type="hidden" name="action" value="add">        
-        <label class="pad_top">First Name:</label>
+        <label class="firstName">First Name:</label>
         <input type="text" name="firstName" value="${user.firstName}"><br>
-        <label class="pad_top">Last Name:</label>
+        <label class="lastName">Last Name:</label>
         <input type="text" name="lastName" value="${user.lastName}"><br>
-        <label class="pad_top">Email:</label>
+        <label class="email">Email:</label>
         <input type="email" name="email" value="${user.email}"><br>
-        <label class="pad_top">Book Title:</label>
-        <input type="text" name="bookTitle" value="${user.bookTitle}"><br>        
+        <label class="bookTitle">Book Title:</label>
+        <input class ="bookTitle2" type="text" name="bookTitle" value="${user.bookTitle}"><br>        
         <label>&nbsp;</label>
-        <input type="submit" value="Checkout" class="margin_left">
+        <input type="submit" value="Checkout" class="checkout">
     </form>
         </main>
         <footer>

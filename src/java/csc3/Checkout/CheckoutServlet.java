@@ -30,6 +30,7 @@ public class CheckoutServlet extends HttpServlet {
             String firstName = request.getParameter("FirstName");
             String lastName = request.getParameter("LastName");
             String email = request.getParameter("Email");
+            String bookTitle = request.getParameter("bookTitle");
             
             // store data in User object
             User user = new User(firstName, lastName, email, bookTitle);
@@ -37,7 +38,8 @@ public class CheckoutServlet extends HttpServlet {
             // validate the parameters
             String message;
             if (firstName == null || lastName == null || email == null ||
-                firstName.isEmpty() || lastName.isEmpty() || email.isEmpty()) {
+                    bookTitle == null ||firstName.isEmpty() || 
+                    lastName.isEmpty()|| email.isEmpty() || bookTitle.isEmpty()){
                 message = "Please fill out all three text boxes.";
                 url = "/cbook.jsp";
             } 

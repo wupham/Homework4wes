@@ -26,7 +26,32 @@ main{
   border-style: solid;
   border-color: red;
   padding: 1em;
-  font-weight: bold; 
+  
+}
+
+
+.firstName{
+margin-right: 3em;
+}
+.lastName{
+  margin-right: 3.05em
+}
+.email{
+  margin-right: 5.4em;
+}
+.bookTitle{
+ margin-right: 3.5em;
+ 
+}
+.bookTitle2{
+  padding-right: 5em;
+}
+.checkout{
+ margin-left:9.45em;
+  
+}
+input{
+margin-top: .3em;
 }
 
 footer{

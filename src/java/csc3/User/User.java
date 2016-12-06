@@ -8,6 +8,7 @@ public class User implements Serializable {
     private String lastName;
     private String email;
     private String bookTitle;
+    private int date;
 
     public User() {
         firstName = "";
@@ -52,5 +53,12 @@ public class User implements Serializable {
 
     public void setBookTitle(String bookTitle) {
         this.bookTitle = bookTitle;
+    }
+    
+    public int getDate(){
+        return date;
+    }
+    public void setDate (int date){
+        this.date = date;
     }
 }
