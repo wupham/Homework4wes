@@ -21,8 +21,8 @@
         </header>
         <main>
             <p>Thank you for your patrongage of the Belk Library. Youve succesfully
-            checked out the book, ${user.bookTitle}. Please note that this book is 
-            due back on ${user.date}. A friendly email reminder will be sent to you if
+            checked out the book, ${book.bookTitle}. Please note that this book is 
+            due back on ${book.date}. A friendly email reminder will be sent to you if
             your book becomes overdue.</p>
             <a href="cbook.jsp">Return to front page</a>
         </main>

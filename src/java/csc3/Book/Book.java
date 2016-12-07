@@ -1,27 +1,31 @@
-package csc3.User;
+package csc3.Book;
 
 import java.io.Serializable;
+import csc3.Book.Date;
+import java.time.LocalDate;
 
-public class User implements Serializable {
+public class Book implements Serializable {
 
     private String firstName;
     private String lastName;
     private String email;
     private String bookTitle;
-    private int date;
+    private LocalDate date;
 
-    public User() {
+    public Book() {
         firstName = "";
         lastName = "";
         email = "";
         bookTitle= "";
+        date = null;
     }
 
-    public User(String firstName, String lastName, String email, String bookTitle) {
+    public Book(String firstName, String lastName, String email, String bookTitle, LocalDate date) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.bookTitle = bookTitle;
+        this.date = date;
     }
 
     public String getFirstName() {
@@ -55,10 +59,11 @@ public class User implements Serializable {
         this.bookTitle = bookTitle;
     }
     
-    public int getDate(){
+    public LocalDate getDate(){
         return date;
     }
-    public void setDate (int date){
+    public void setDate (LocalDate date){
         this.date = date;
     }
+
 }

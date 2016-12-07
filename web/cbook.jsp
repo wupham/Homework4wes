@@ -21,16 +21,16 @@
         </header>
         <main>
             <h2>Checkout a book</h2>
-            <form action="test" method="post">
+            <form action="checkout" method="post">
         <input type="hidden" name="action" value="add">        
         <label class="firstName">First Name:</label>
-        <input type="text" name="firstName" value="${user.firstName}"><br>
+        <input type="text" name="firstName" value="${book.firstName}" required><br>
         <label class="lastName">Last Name:</label>
-        <input type="text" name="lastName" value="${user.lastName}"><br>
+        <input type="text" name="lastName" value="${book.lastName}" required><br>
         <label class="email">Email:</label>
-        <input type="email" name="email" value="${user.email}"><br>
+        <input type="email" name="email" value="${book.email}" required><br>
         <label class="bookTitle">Book Title:</label>
-        <input class ="bookTitle2" type="text" name="bookTitle" value="${user.bookTitle}"><br>        
+        <input class ="bookTitle2" type="text" name="bookTitle" value="${book.bookTitle}" required><br>        
         <label>&nbsp;</label>
         <input type="submit" value="Checkout" class="checkout">
     </form>

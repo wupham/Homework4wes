@@ -4,9 +4,14 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import csc3.User.User;
+import csc3.Book.Book;
+import csc3.Data.BookDB;
+import csc3.Book.Date;
+import java.time.LocalDate;
 
 
+
+//@WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {
 
     @Override
@@ -27,13 +32,17 @@ public class CheckoutServlet extends HttpServlet {
         } 
         else if (action.equals("add")) {
             // get parameters from the request
-            String firstName = request.getParameter("FirstName");
-            String lastName = request.getParameter("LastName");
-            String email = request.getParameter("Email");
+            String firstName = request.getParameter("firstName");
+            String lastName = request.getParameter("lastName");
+            String email = request.getParameter("email");
             String bookTitle = request.getParameter("bookTitle");
             
-            // store data in User object
-            User user = new User(firstName, lastName, email, bookTitle);
+            LocalDate date = null;
+            date = Date.setDate(date);
+            
+            // store data in Book object
+            
+            Book book = new Book(firstName, lastName, email, bookTitle, date);
 
             // validate the parameters
             String message;
@@ -46,9 +55,9 @@ public class CheckoutServlet extends HttpServlet {
             else {
                 message = "";
                 url = "/thanks.jsp";
-               
+                BookDB.insert(book);
             }
-            request.setAttribute("user", user);
+            request.setAttribute("book", book);
             request.setAttribute("message", message);
         }
         getServletContext()
