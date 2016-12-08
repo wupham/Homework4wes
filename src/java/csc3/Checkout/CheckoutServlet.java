@@ -16,16 +16,16 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.annotation.WebServlet;
 
 
-//@WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {
+    
     protected void doGet(HttpServletRequest request,
         HttpServletResponse response)
         throws ServletException, IOException {
         doPost(request, response);
     }
-    @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {

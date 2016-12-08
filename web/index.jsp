@@ -15,7 +15,7 @@
         </header>
         <main>
             <a href="cbook.jsp"> Check out a book</a><br>
-            <a href="/checkout?action=manage">Manage checked out books</a>
+            <a href="checkout?action=manage">Manage checked out books</a>
         </main>
         <footer>
             <p>	&copy;2016, Nick Richu & Wes Upham</p>
