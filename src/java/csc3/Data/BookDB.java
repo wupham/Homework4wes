@@ -86,10 +86,10 @@ public class BookDB {
                 
                  SimpleDateFormat df = new SimpleDateFormat(dateFormat);
                  Date newDueDate = df.parse(dueDate);
-                 String status = "";
-                 System.out.println(todayDate + "<-CHECK"  + "CHECK->" +newDueDate);
-                 if (todayDate.after(newDueDate)){
-                     status = "Not Overdue";
+                 String status = "overdue";
+                 
+                 if (todayDate.before(newDueDate)){
+                     status = "";
                  }
                  book.setStatus(status);
                  users.add(book);

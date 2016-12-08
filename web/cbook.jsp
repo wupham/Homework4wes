@@ -36,7 +36,7 @@
     </form>
         </main>
         <footer>
-            <p>	&copy;2016, Nick Richu</p>
+            <p>	&copy;2016, Nick Richu & Wes Upham</p>
         </footer>
             
     </body>

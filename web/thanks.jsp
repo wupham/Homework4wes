@@ -27,7 +27,7 @@
             <a href="index.jsp">Return to front page</a>
         </main>
         <footer>
-            <p>	&copy;2016, Nick Richu</p>
+            <p>	&copy;2016, Nick Richu & Wes Upham</p>
         </footer>
             
     </body>

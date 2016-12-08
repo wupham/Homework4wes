@@ -2,7 +2,7 @@
 <%-- 
     Document   : thanks
     Created on : Dec 5, 2016, 11:30:06 AM
-    Author     : nick
+    Author     : nick & wes
 --%>
 <!--Copyright © 2016 Wes Upham and Nick Richu-->
 
