@@ -12,7 +12,7 @@
 
     <tag>
         <name>Library</name>
-        <tagclass>csc3.Book.library</tagclass>
+        <tagclass>csc3.Book.Library</tagclass>
         <info>returns books</info>
          <attribute>
             <name>books</name>

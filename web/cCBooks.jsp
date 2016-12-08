@@ -6,7 +6,7 @@
 --%>
 <!--Copyright © 2016 Wes Upham and Nick Richu-->
 
-<%@taglib prefix="elon" uri="/WEB-INF/tlds/newtag_library.tld"  %>
+
 <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -38,10 +38,10 @@
   </tr>
 
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  <td><b>Year</b><br><c:forEach var="i" begin="1" end="${book}">
+  <td><b>Year</b><br><c:forEach var="i" begin="1" end="${users}">
             <c:out value="${users[i]}"/><br></c:forEach></p></td>
-          <td><b>Value</b><br><c:forEach var="i" begin="1" end="${book}">
-                    <elon:Library amount="${users[i]}"/><br></c:forEach></p></td>      
+          <td><b>Value</b><br><c:forEach var="i" begin="1" end="${users}">
+                    
   <tr>
     <td>${book.firstName}${book.lastName}</td>
     <td>${book.email}</td>
