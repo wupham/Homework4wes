@@ -59,7 +59,7 @@ public class BookDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM books";
+        String query = "SELECT * FROM w.books";
         try {
             ps = connection.prepareStatement(query);
             rs = ps.executeQuery();

@@ -13,6 +13,7 @@ import static csc3.Book.DateCalculator.setDate;
 import java.util.Date;
 import csc3.Data.BookDB;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,6 +41,15 @@ public class CheckoutServlet extends HttpServlet {
         if (action.equals("join")) {
             url = "/index.jsp";    // the "join" page
         } 
+        else if (action.equals("manage")){
+            //call the db for array list
+            //set the request attribute request.setattribute("users", users)
+            //url
+            ArrayList<Book> users = BookDB.selectUsers();
+            request.setAttribute("users", users);
+            url = "/cCBooks.jsp";
+            
+        }
         else if (action.equals("add")) {
             try {
                 // get parameters from the request

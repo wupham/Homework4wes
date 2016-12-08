@@ -38,16 +38,13 @@
   </tr>
 
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  <td><b>Year</b><br><c:forEach var="i" begin="1" end="${book}">
-            <c:out value="${users[i]}"/><br></c:forEach></p></td>
-          <td><b>Value</b><br><c:forEach var="i" begin="1" end="${book}">
-                    <elon:Library amount="${users[i]}"/><br></c:forEach></p></td>      
+  <c:forEach var="user" items="${users}">  
   <tr>
-    <td>${book.firstName}${book.lastName}</td>
-    <td>${book.email}</td>
-    <td>${book.bookTitle}</td>
-    <td>${book.date}</td>
-    <td>${book.overdue}</td>
+    <td>${user.firstName} ${user.lastName}</td>
+    <td>${user.email}</td>
+    <td>${user.bookTitle}</td>
+    <td>${user.date}</td>
+    <td>${user.status}</td>
     <td><input type="submit" value="Check In"></td>
   </tr>
   </c:forEach>
@@ -56,7 +53,7 @@
   <a href="index.jsp">Return to front page</a>
         </main>
         <footer>
-            <p>	&copy;2016, Nick Richu</p>
+            <p>	&copy;2016, Nick Richu & Wes Upham</p>
         </footer>
             
     </body>
