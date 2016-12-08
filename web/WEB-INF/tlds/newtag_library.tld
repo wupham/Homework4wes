@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+        web-jsptaglibrary_2_0.xsd">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>murach</short-name>
+    <uri>/WEB-INF/tlds/newtag_library.tld</uri>
+    <info>A custom tag library developed by 
+          nick richu and Wes</info>
+
+    <tag>
+        <name>Library</name>
+        <tagclass>csc3.Book.library</tagclass>
+        <info>returns books</info>
+         <attribute>
+            <name>books</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.Object</type>
+        </attribute>
+    </tag>
+    
+
+
+</taglib>

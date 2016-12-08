@@ -20,11 +20,11 @@
             <h1>Belk Library</h1>
         </header>
         <main>
-            <p>Thank you for your patrongage of the Belk Library. Youve succesfully
+            <p>Thank you for your patrongage of the Belk Library. You've succesfully
             checked out the book, ${book.bookTitle}. Please note that this book is 
             due back on ${book.date}. A friendly email reminder will be sent to you if
             your book becomes overdue.</p>
-            <a href="cbook.jsp">Return to front page</a>
+            <a href="index.jsp">Return to front page</a>
         </main>
         <footer>
             <p>	&copy;2016, Nick Richu</p>

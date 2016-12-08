@@ -4,7 +4,11 @@
     Created on : Dec 5, 2016, 11:30:06 AM
     Author     : nick
 --%>
+<!--Copyright © 2016 Wes Upham and Nick Richu-->
 
+<%@taglib prefix="elon" uri="/WEB-INF/tlds/newtag_library.tld"  %>
+<%@ taglib prefix="c"
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,23 +29,31 @@
 <table>
 
   <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th colspan="3">Email</th>
+    <th>Patron Name</th>
+    <th>Email Address</th>
+    <th>Book Title</th>
+    <th>Due Date</th>
+    <th>Overdue?</th>
+    <th colspan="6"> </th>
   </tr>
 
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  <c:forEach var="book" items="${book}">
+  <td><b>Year</b><br><c:forEach var="i" begin="1" end="${book}">
+            <c:out value="${users[i]}"/><br></c:forEach></p></td>
+          <td><b>Value</b><br><c:forEach var="i" begin="1" end="${book}">
+                    <elon:Library amount="${users[i]}"/><br></c:forEach></p></td>      
   <tr>
-    <td>${book.firstName}</td>
-    <td>${book.lastName}</td>
+    <td>${book.firstName}${book.lastName}</td>
     <td>${book.email}</td>
-    <td><a href="userAdmin?action=display_user&amp;email=${book.email}">Update</a></td>
-    <td><a href="userAdmin?action=delete_user&amp;email=${book.email}">Delete</a></td>
+    <td>${book.bookTitle}</td>
+    <td>${book.date}</td>
+    <td>${book.overdue}</td>
+    <td><input type="submit" value="Check In"></td>
   </tr>
   </c:forEach>
 
 </table>
+  <a href="index.jsp">Return to front page</a>
         </main>
         <footer>
             <p>	&copy;2016, Nick Richu</p>

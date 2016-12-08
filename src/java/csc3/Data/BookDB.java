@@ -3,6 +3,7 @@ package csc3.Data;
 import csc3.Book.Book;
 import java.sql.*;
 import java.util.ArrayList;
+import static csc3.Book.DateCalculator.returnDate;
 
 public class BookDB {
 
@@ -12,7 +13,7 @@ public class BookDB {
         PreparedStatement ps = null;
 
         String query
-                = "INSERT INTO books (firstName, lastName, email, bookTitle, dueDate) "
+                = "INSERT INTO w.books (firstName, lastName, email, bookTitle, dueDate) "
                 + "VALUES (?, ?, ?, ?, ?)";
         try {
             ps = connection.prepareStatement(query);
@@ -20,7 +21,9 @@ public class BookDB {
             ps.setString(2, book.getLastName());
             ps.setString(3, book.getEmail());
             ps.setString(4, book.getBookTitle());
-            ps.setString(5, book.getDate());
+            String wes = book.toString();
+            System.out.println(wes);
+            ps.setDate(5, returnDate());
             return ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
@@ -49,40 +52,7 @@ public class BookDB {
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }
-    }
-    
-    public static Book selectUser(String email) {
-        ConnectionPool pool = ConnectionPool.getInstance();
-        Connection connection = pool.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        String query = "SELECT * FROM User "
-                + "WHERE Email = ?";
-        try {
-            ps = connection.prepareStatement(query);
-            ps.setString(1, email);
-            rs = ps.executeQuery();
-            Book book = null;
-            if (rs.next()) {
-                book = new Book();
-                book.setFirstName(rs.getString("firstName"));
-                book.setLastName(rs.getString("lastName"));
-                book.setEmail(rs.getString("email"));
-                book.setBookTitle(rs.getString("bookTitle"));
-                book.setDate(rs.getString("dueDate"));
-            }
-            return book;
-        } catch (SQLException e) {
-            System.out.println(e);
-            return null;
-        } finally {
-            DBUtil.closeResultSet(rs);
-            DBUtil.closePreparedStatement(ps);
-            pool.freeConnection(connection);
-        }
-    }
-    
+    }    
     public static ArrayList<Book> selectUsers() {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
@@ -97,9 +67,11 @@ public class BookDB {
             while (rs.next())
             {
                 Book book = new Book();
-                book.setFirstName(rs.getString("FirstName"));
-                book.setLastName(rs.getString("LastName"));
-                book.setEmail(rs.getString("Email"));
+                book.setFirstName(rs.getString("firstName"));
+                book.setLastName(rs.getString("lastName"));
+                book.setEmail(rs.getString("email"));
+                book.setBookTitle(rs.getString("bookTitle"));
+                book.setDate(rs.getString("dueDate"));
                 users.add(book);
             }
             return users;

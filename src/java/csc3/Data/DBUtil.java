@@ -1,4 +1,4 @@
-package murach.data;
+package csc3.Data;
 
 import java.sql.*;
 

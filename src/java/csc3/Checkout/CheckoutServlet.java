@@ -5,20 +5,30 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import csc3.Book.Book;
-import csc3.Data.BookDB;
-import csc3.Book.Date;
-import java.time.LocalDate;
+//import csc3.Data.BookDB;
+import csc3.Book.DateCalculator;
+import static csc3.Book.DateCalculator.checkOverdue;
+import static csc3.Book.DateCalculator.setDate;
 
+import java.util.Date;
+import csc3.Data.BookDB;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 //@WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {
-
+    protected void doGet(HttpServletRequest request,
+        HttpServletResponse response)
+        throws ServletException, IOException {
+        doPost(request, response);
+    }
     @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        String url = "/cbook.jsp";
+        String url = "/index.jsp";
         
         // get current action
         String action = request.getParameter("action");
@@ -28,37 +38,45 @@ public class CheckoutServlet extends HttpServlet {
 
         // perform action and set URL to appropriate page
         if (action.equals("join")) {
-            url = "/cbook.jsp";    // the "join" page
+            url = "/index.jsp";    // the "join" page
         } 
         else if (action.equals("add")) {
-            // get parameters from the request
-            String firstName = request.getParameter("firstName");
-            String lastName = request.getParameter("lastName");
-            String email = request.getParameter("email");
-            String bookTitle = request.getParameter("bookTitle");
-            
-            LocalDate date = null;
-            date = Date.setDate(date);
-            
-            // store data in Book object
-            
-            Book book = new Book(firstName, lastName, email, bookTitle, date);
-
-            // validate the parameters
-            String message;
-            if (firstName == null || lastName == null || email == null ||
-                    bookTitle == null ||firstName.isEmpty() || 
-                    lastName.isEmpty()|| email.isEmpty() || bookTitle.isEmpty()){
-                message = "Please fill out all three text boxes.";
-                url = "/cbook.jsp";
-            } 
-            else {
-                message = "";
-                url = "/thanks.jsp";
-                BookDB.insert(book);
+            try {
+                // get parameters from the request
+                String firstName = request.getParameter("firstName");
+                String lastName = request.getParameter("lastName");
+                String email = request.getParameter("email");
+                String bookTitle = request.getParameter("bookTitle");
+                
+                //String date = null;
+                String duedate = setDate();
+                
+                
+                String status = checkOverdue();
+                
+                
+                // store data in Book object
+                
+                Book book = new Book(firstName, lastName, email, bookTitle, duedate, status);
+                
+                // validate the parameters
+                String message;
+                if (firstName == null || lastName == null || email == null ||
+                        bookTitle == null ||firstName.isEmpty() ||
+                        lastName.isEmpty()|| email.isEmpty() || bookTitle.isEmpty()){
+                    message = "Please fill out all three text boxes.";
+                    url = "/cbook.jsp";
+                }
+                else {
+                    message = "";
+                    url = "/thanks.jsp";
+                    BookDB.insert(book);
+                }
+                request.setAttribute("book", book);
+                request.setAttribute("message", message);
+            } catch (ParseException ex) {
+                Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            request.setAttribute("book", book);
-            request.setAttribute("message", message);
         }
         getServletContext()
                 .getRequestDispatcher(url)

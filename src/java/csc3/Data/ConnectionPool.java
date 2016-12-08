@@ -1,4 +1,4 @@
-package murach.data;
+package csc3.Data;
 
 import java.sql.*;
 import javax.sql.DataSource;
@@ -13,7 +13,7 @@ public class ConnectionPool {
     private ConnectionPool() {
         try {
             InitialContext ic = new InitialContext();
-            dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/murach");
+            dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/MySQLDS");
         } catch (NamingException e) {
             System.out.println(e);
         }
