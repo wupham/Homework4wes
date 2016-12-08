@@ -34,16 +34,16 @@ public class BookDB {
         }
     }
 
-    public static int delete(Book book) {
+    public static int delete(String bookTitle) {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
-        String query = "DELETE FROM book "
+        String query = "DELETE FROM books "
                 + "WHERE bookTitle = ?";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, book.getBookTitle());
+            ps.setString(1, bookTitle);
             return ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
@@ -59,7 +59,7 @@ public class BookDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM books";
+        String query = "SELECT * FROM w.books";
         try {
             ps = connection.prepareStatement(query);
             rs = ps.executeQuery();

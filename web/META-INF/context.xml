@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/Homework4wes">
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" logAbandoned="true" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/MySQLDS" password="mysqluser" removeAbandoned="true" removeAbandonedTimeout="60" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/w" username="root"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" logAbandoned="true" 
+            maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/MySQLDS" password="nick1012"
+            removeAbandoned="true" removeAbandonedTimeout="60" type="javax.sql.DataSource"
+            url="jdbc:mysql://localhost:3306/w" username="root"/>
 </Context>
