@@ -55,6 +55,10 @@ public class CheckoutServlet extends HttpServlet {
             String bookTitle = request.getParameter("bookTitle");
             BookDB.delete(bookTitle);
             
+            ArrayList<Book> users = BookDB.selectUsers();
+            request.setAttribute("users", users);
+            url = "/cCBooks.jsp";
+            
         }
         else if (action.equals("add")) {
             try {

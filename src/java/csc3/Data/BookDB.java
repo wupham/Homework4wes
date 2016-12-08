@@ -4,6 +4,11 @@ import csc3.Book.Book;
 import java.sql.*;
 import java.util.ArrayList;
 import static csc3.Book.DateCalculator.returnDate;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class BookDB {
 
@@ -53,7 +58,7 @@ public class BookDB {
             pool.freeConnection(connection);
         }
     }    
-    public static ArrayList<Book> selectUsers() {
+    public static ArrayList<Book> selectUsers() throws ParseException {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
@@ -72,7 +77,22 @@ public class BookDB {
                 book.setEmail(rs.getString("email"));
                 book.setBookTitle(rs.getString("bookTitle"));
                 book.setDate(rs.getString("dueDate"));
-                users.add(book);
+                Date todayDate = null;
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(new Date());
+                todayDate = calendar.getTime();
+                 String dueDate = book.getDate();
+                 String dateFormat = "MM-dd-YYYY";
+                
+                 SimpleDateFormat df = new SimpleDateFormat(dateFormat);
+                 Date newDueDate = df.parse(dueDate);
+                 String status = "";
+                 System.out.println(todayDate + "<-CHECK"  + "CHECK->" +newDueDate);
+                 if (todayDate.after(newDueDate)){
+                     status = "Not Overdue";
+                 }
+                 book.setStatus(status);
+                 users.add(book);
             }
             return users;
         } catch (SQLException e) {

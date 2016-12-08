@@ -33,13 +33,13 @@ public class DateCalculator {
     }
 
     public static String checkOverdue() throws ParseException {
-        Date today = new Date();
+        java.sql.Date today = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         //java.sql.Date sqlDate = new java.sql.Date(today.getTime());
-        Date dueDate = sdf.parse(setDate());
+        java.sql.Date OriginalDueDate = returnDate();
         // java.sql.Date sqlDueDate = new java.sql.Date(dueDate.getTime());
         String status = "Overdue";
-        if (today.before(dueDate)) {
-            status = "Not Overdue";
+        if (today.before(OriginalDueDate)) {
+            status = "Not overdue";
             return status;
         }
         return status;

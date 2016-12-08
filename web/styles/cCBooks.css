@@ -27,6 +27,7 @@ main{
   border-color: red;
   padding: 1em;
   font-weight: bold; 
+  
 }
 
 footer{
@@ -39,6 +40,16 @@ p{
   margin-left: 1.5em;
 }
 
+th{
+    padding: 0 0 1em 3em;
+    margin: 0 auto;
+}
+td{
+    padding-left: 3.3em;
+    padding-bottom: 1.5em;
+    font-weight:normal;
+    
+}
 /*
 copyright:2016, Nick Richu & Wes Upham
 
