@@ -1,16 +1,9 @@
 <!DOCTYPE html>
-<%-- 
-    Document   : thanks
-    Created on : Dec 5, 2016, 11:30:06 AM
-    Author     : nick & wes
---%>
-<!--Copyright Â© 2016 Wes Upham and Nick Richu-->
+
+<!--Copyright © 2016 Wes Upham and Nick Richu-->
 
 
-<%@ taglib prefix="c"
-           uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 <html>
     <head>
         <title>Frontpage Library</title>
@@ -26,35 +19,35 @@
         <main>
             <h1>Users</h1>
 
-<table>
+            <table>
 
-  <tr>
-    <th>Patron Name</th>
-    <th>Email Address</th>
-    <th>Book Title</th>
-    <th>Due Date</th>
-    <th>Overdue?</th>
-    <th colspan="6"> </th>
-  </tr>
+                <tr>
+                    <th>Patron Name</th>
+                    <th>Email Address</th>
+                    <th>Book Title</th>
+                    <th>Due Date</th>
+                    <th>Overdue?</th>
+                    <th colspan="6"> </th>
+                </tr>
 
-  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  <c:forEach var="user" items="${users}">  
-  <tr>
-    <td>${user.firstName} ${user.lastName}</td>
-    <td>${user.email}</td>
-    <td>${user.bookTitle}</td>
-    <td>${user.date}</td>
-    <td>${user.status}</td>
-    <td><form action="checkout" method="post"><input type="hidden" name="action" value="delete"><input type="hidden" name="bookTitle" value="${user.bookTitle}"><input type="submit" value="Check In"></form></td>
-  </tr>
-  </c:forEach>
+                <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+                <c:forEach var="user" items="${users}">  
+                    <tr>
+                        <td>${user.firstName} ${user.lastName}</td>
+                        <td>${user.email}</td>
+                        <td>${user.bookTitle}</td>
+                        <td>${user.date}</td>
+                        <td>${user.status}</td>
+                        <td><form action="checkout" method="post"><input type="hidden" name="action" value="delete"><input type="hidden" name="bookTitle" value="${user.bookTitle}"><input type="submit" value="Check In"></form></td>
+                    </tr>
+                </c:forEach>
 
-</table>
-  <a href="index.jsp">Return to front page</a>
+            </table>
+            <a href="index.jsp">Return to front page</a>
         </main>
         <footer>
             <p>	&copy;2016, Nick Richu & Wes Upham</p>
         </footer>
-            
+
     </body>
 </html>

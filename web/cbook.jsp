@@ -1,12 +1,7 @@
 <!DOCTYPE html>
-<%-- 
-    Document   : cbook
-    Created on : Dec 5, 2016, 11:30:06 AM
-    Author     : nick
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 <html>
     <head>
         <title>Frontpage Library</title>
